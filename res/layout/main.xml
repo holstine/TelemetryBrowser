@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.holstine.avc.telemetry.AVCTelemetry" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/lcd1Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:ems="10"
+            android:text="lcd1" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/lcd2Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:ems="10"
+            android:text="lcd2" >
+        </EditText>
+    </LinearLayout>
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <EditText
+                            android:id="@+id/editText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".01"
+                            android:editable="false"
+                            android:ems="10"
+                            android:text="Y calibration Offset / Scale" />
+
+                        <SeekBar
+                            android:id="@+id/yOffsetCalibrationBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="5"
+                            android:tag="yOffsetCalibrationBar" />
+
+                        <SeekBar
+                            android:id="@+id/yScaleCalibrationBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="5"
+                            android:tag="yScaleCalibrationBar" />
+                    </LinearLayout>
+
+                    <com.holstine.avc.telemetry.ListenerView
+                        android:id="@+id/listenerView2"
+                        android:layout_width="800dp"
+                        android:layout_height="500dp"
+                        android:layout_weight="10" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <EditText
+                            android:id="@+id/editText2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".01"
+                            android:editable="false"
+                            android:ems="10"
+                            android:text="X calibration Offset / Scale" />
+
+                        <SeekBar
+                            android:id="@+id/xOffsetCalibrationBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="5"
+                            android:tag="xOffsetCalibrationBar" />
+
+                        <SeekBar
+                            android:id="@+id/xScaleCalibrationBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="5"
+                            android:tag="xScaleCalibrationBar" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:baselineAligned="true"
+                            android:orientation="horizontal" >
+
+                            <EditText
+                                android:id="@+id/editText1"
+                                android:layout_width="123dp"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:ems="10"
+                                android:text="@string/Position" >
+
+                                <requestFocus />
+                            </EditText>
+
+                            <EditText
+                                android:id="@+id/editText5"
+                                android:layout_width="69dp"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:ems="10"
+                                android:text="X: "
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/pox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="10" />
+
+                            <EditText
+                                android:id="@+id/EditText01"
+                                android:layout_width="54dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.03"
+                                android:editable="false"
+                                android:ems="10"
+                                android:text="Y: " />
+
+                            <EditText
+                                android:id="@+id/poy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10" />
+
+                            <EditText
+                                android:id="@+id/EditText02"
+                                android:layout_width="53dp"
+                                android:layout_height="wrap_content"
+                                android:editable="false"
+                                android:ems="10"
+                                android:text="SD: " />
+
+                            <EditText
+                                android:id="@+id/err"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <ToggleButton
+                                android:id="@+id/powerButton"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:hint="power"
+                                android:onClick="onToggleClicked"
+                                android:textOff="Power Off"
+                                android:textOn="Power ON" />
+
+                            <SeekBar
+                                android:id="@+id/powerBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:tag="percentPower" />
+
+                            <Button
+                                android:id="@+id/stops"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="stop"
+                                android:onClick="miscButton"
+                                android:text="STOP" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <ToggleButton
+                                android:id="@+id/steerButton"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:hint="steering"
+                                android:onClick="onToggleClicked"
+                                android:textOff="Steering Off"
+                                android:textOn="Steering ON" />
+
+                            <SeekBar
+                                android:id="@+id/steeringBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:tag="steeringBar" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="776dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+                              
+
+                                <ToggleButton
+                                    android:id="@+id/toggleButton1"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="button"
+                                    android:onClick="onToggleClicked"
+                                    android:text="Button ON"
+                                    android:textOff="Button Off"
+                                    android:textOn="Button ON" />
+
+                                <Button
+                                    android:id="@+id/button3"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="modePlus"
+                                    android:onClick="miscButton"
+                                    android:text="mode ++" />
+
+                                <Button
+                                    android:id="@+id/button4"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="modeMinus"
+                                    android:onClick="miscButton"
+                                    android:text="Mode --" />
+
+                                <Button
+                                    android:id="@+id/button5"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="valuePlus"
+                                    android:onClick="miscButton"
+                                    android:text="Value ++" />
+
+                                <Button
+                                    android:id="@+id/button6"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="valueMinus"
+                                    android:onClick="miscButton"
+                                    android:text="Value --" />
+                                
+                                  <Button
+                                    android:id="@+id/compMode"
+                                    android:layout_width="200dp"
+                                    android:layout_height="100dp"
+                                    android:hint="compMode"
+                                    android:onClick="miscButton"
+                                    android:text="Competition Mode" />
+                                  
+                                   <Button
+                                    android:id="@+id/goMode"
+                                    android:layout_width="200dp"
+                                    android:layout_height="100dp"
+                                    android:hint="goMode"
+                                    android:onClick="miscButton"
+                                    android:text="GO" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+                                <ToggleButton
+                                    android:id="@+id/button15"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="integrateOrigin"
+                                    android:onClick="onToggleClicked"
+                                    android:textOff="integrateOrigin Off"
+                                    android:textOn="integrateOrigin ON" />
+
+                                <Button
+                                    android:id="@+id/button16"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="resetOrigin"
+                                    android:onClick="miscButton"
+                                    android:text="Reset Origin" />
+
+                                <Button
+                                    android:id="@+id/button17"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="save"
+                                    android:onClick="miscButton"
+                                    android:text="Save" />
+
+                                <Button
+                                    android:id="@+id/button18"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="load"
+                                    android:onClick="miscButton"
+                                    android:text="Load" />
+
+                                <Button
+                                    android:id="@+id/playbackPlay"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="playbackPlay"
+                                    android:onClick="miscButton"
+                                    android:text="playback" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal" >
+
+                                    <Button
+                                        android:id="@+id/playbackNumberMinus"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:hint="playbackNumberMinus"
+                                        android:onClick="miscButton"
+                                        android:text="-" />
+
+                                    <EditText
+                                        android:id="@+id/playbackNumber"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:editable="false"
+                                        android:ems="10"
+                                        android:text="x" />
+
+                                    <Button
+                                        android:id="@+id/playbackNumberPlus"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:hint="playbackNumberPlus"
+                                        android:onClick="miscButton"
+                                        android:text="+" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/pausePlayback"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="pausePlayback"
+                                    android:onClick="miscButton"
+                                    android:text="Pause Playback" />
+
+                                <Button
+                                    android:id="@+id/stopPlayback"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="stopPlayback"
+                                    android:onClick="miscButton"
+                                    android:text="Stop Playback" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal" >
+
+                                    <Button
+                                        android:id="@+id/playbackSpeedMinus"
+                                        android:layout_width="100dp"
+                                        android:layout_height="50dp"
+                                        android:hint="playbackSpeedMinus"
+                                        android:onClick="miscButton"
+                                        android:text="slow" />
+
+                                    <Button
+                                        android:id="@+id/playbackSpeedPlus"
+                                        android:layout_width="100dp"
+                                        android:layout_height="50dp"
+                                        android:hint="playbackSpeedPlus"
+                                        android:onClick="miscButton"
+                                        android:text="fast" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+                                <Button
+                                    android:id="@+id/button13"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="setWaypoint"
+                                    android:onClick="miscButton"
+                                    android:text="Set Waypoint" />
+
+                                <Button
+                                    android:id="@+id/button19"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="clearWaypoints"
+                                    android:onClick="miscButton"
+                                    android:text="Clear Waypoints" />
+
+                                <Button
+                                    android:id="@+id/button20"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="resetWaypoints"
+                                    android:onClick="miscButton"
+                                    android:text="Reset Waypoints" />
+
+                                <Button
+                                    android:id="@+id/button21"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="addWaypoint"
+                                    android:onClick="miscButton"
+                                    android:text="Add Waypoint" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal" >
+
+                                    <Button
+                                        android:id="@+id/waypointToRecordMinus"
+                                        android:layout_width="75dp"
+                                        android:layout_height="50dp"
+                                        android:hint="backWaypoint"
+                                        android:onClick="miscButton"
+                                        android:text="-" />
+
+                                    <EditText
+                                        android:id="@+id/waypointToRecord"
+                                        android:layout_width="50dp"
+                                        android:layout_height="match_parent"
+                                        android:editable="false"
+                                        android:ems="10"
+                                        android:text="x" />
+
+                                    <Button
+                                        android:id="@+id/waypointToRecordPlus"
+                                        android:layout_width="75dp"
+                                        android:layout_height="50dp"
+                                        android:hint="forwardWaypoint"
+                                        android:onClick="miscButton"
+                                        android:text="+" />
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/sendWaypoints"
+                                    android:layout_width="200dp"
+                                    android:layout_height="50dp"
+                                    android:hint="sendWaypoints"
+                                    android:onClick="miscButton"
+                                    android:text="Get Waypoints" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+                                <ToggleButton
+                                    android:id="@+id/telemetryOn"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="telemetry"
+                                    android:onClick="onToggleClicked"
+                                    android:text="Integrate Waypoint"
+                                    android:textOff="telemetry Off"
+                                    android:textOn="telemetry On" />
+
+                                <ToggleButton
+                                    android:id="@+id/serialOn"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="serial"
+                                    android:onClick="onToggleClicked"
+                                    android:textOff="serial Off"
+                                    android:textOn="serial On" />
+                                
+                                     <ToggleButton
+                                    android:id="@+id/lcdOn"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="lcd"
+                                    android:onClick="onToggleClicked"
+                                    android:textOff="lcd Off"
+                                    android:textOn="lcd On" />
+
+                                <ToggleButton
+                                    android:id="@+id/fileOn"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="file"
+                                    android:onClick="onToggleClicked"
+                                    android:textOff="file Off"
+                                    android:textOn="file On" />
+
+                                <ToggleButton
+                                    android:id="@+id/speedyUpdate"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="speedyUpdate"
+                                    android:onClick="onToggleClicked"
+                                    android:text="speedyUpdate"
+                                    android:textOff="speedyUpdate Off"
+                                    android:textOn="speedyUpdate ON" />
+
+                                <ToggleButton
+                                    android:id="@+id/calibrateCompass"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:hint="calibrateCompass"
+                                    android:onClick="onToggleClicked"
+                                    android:text="calibrateCompass"
+                                    android:textOff="calibrateCompass Off"
+                                    android:textOn="calibrateCompass ON" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <com.holstine.avc.telemetry.ListenerView
+                        android:id="@+id/listenerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/header"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ff347c12"
+                        android:textAppearance="?android:attr/textAppearanceLarge" >
+
+                        <TextView
+                            android:id="@+id/item1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:text="Key"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:width="600dip" />
+
+                        <TextView
+                            android:id="@+id/item2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:text="Value"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:width="300dip"
+                            tools:ignore="HardcodedText" />
+                    </LinearLayout>
+
+                    <!-- List Divider -->
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dip"
+                        android:background="?android:attr/listDivider" />
+
+                    <!-- ListView (grid_items) -->
+
+                    <LinearLayout
+                        android:id="@+id/layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <com.holstine.avc.telemetry.VariableListListenerView
+                            android:id="@+id/listview"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent" >
+                        </com.holstine.avc.telemetry.VariableListListenerView>
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>
